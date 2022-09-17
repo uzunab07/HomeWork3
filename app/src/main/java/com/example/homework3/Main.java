@@ -36,7 +36,7 @@ public class Main extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        ( (MainActivity) getActivity()).getSupportActionBar().setTitle("Home Works 3 Main");
+
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_main, container, false);
 
@@ -44,15 +44,13 @@ public class Main extends Fragment {
        BACLevel = view.findViewById(R.id.BACLevel);
        BACStatus = view.findViewById(R.id.BACStatus);
        numOfDrinks = view.findViewById(R.id.numOfDrinks);
-        addDrinks = view.findViewById(R.id.addDrinks);
+       addDrinks = view.findViewById(R.id.addDrinks);
+       BACStatus.setBackgroundColor(getResources().getColor(R.color.safe));
 
        //Returning from Setting the weight and Gender ArrayList of drinks should be empty and User should not be set yet
        //Returning from adding drinks  ArrayList of drinks can o not be empty but the user Profile should already been set here after each return I recalculate de BAC again
        if(user!=null && this.drinks.size()==0){
            currentWeight.setText(""+user.weight+"lbs ("+user.gender+")");
-
-           //Create the arrayList for the drinks and setting the textView to display the correct values
-
 
            BACLevel.setText("0.000");
            BACStatus.setText("You're safe.");
