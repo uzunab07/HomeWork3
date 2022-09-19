@@ -35,8 +35,6 @@ public class Main extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_main, container, false);
 
@@ -124,19 +122,13 @@ public class Main extends Fragment {
 
     public void settingValuesFromGenderFragment(Profile profile){
         this.user  = profile;
-
-
-
     }
     public void settingValuesFromAddDrinkFragment(Drink drink){
         this.drinks.add(drink);
-
-
     }
 
     public void settingNewDrinkList(ArrayList<Drink> drinks){
         this.drinks = new ArrayList<>();
-
         this.drinks = drinks;
     }
 

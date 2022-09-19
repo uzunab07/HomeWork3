@@ -52,8 +52,7 @@ public class SetGender extends Fragment {
         view.findViewById(R.id.weightCancel).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().getSupportFragmentManager()
-                        .popBackStackImmediate();
+                gListener.cancelSetGender();
             }
         });
 
@@ -67,13 +66,6 @@ public class SetGender extends Fragment {
                     weight = Integer.valueOf(value);
 
                     gListener.sendGenderAndWeight(genderType,weight);
-                    getActivity().getSupportFragmentManager()
-                            .popBackStack();
-//                    Intent intent = new Intent();
-//                    intent.putExtra(USER_KEY, new Profile(weight, genderType));
-//                    setResult(RESULT_OK, intent);
-//                    finish();
-
                 }
             }
         });
@@ -106,6 +98,7 @@ public class SetGender extends Fragment {
 
     public  interface GListener{
         void sendGenderAndWeight(String gender, int weight);
+        void cancelSetGender();
     }
 }
 

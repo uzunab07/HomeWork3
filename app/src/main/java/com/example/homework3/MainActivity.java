@@ -22,9 +22,7 @@ public class MainActivity extends AppCompatActivity implements SetGender.GListen
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.containerView, new Main(),"MainFragment")
-                .addToBackStack(null)
                 .commit();
-
     }
 
     @Override
@@ -33,7 +31,13 @@ public class MainActivity extends AppCompatActivity implements SetGender.GListen
        Main mainFragment = (Main) getSupportFragmentManager().findFragmentByTag("MainFragment");
 
         mainFragment.settingValuesFromGenderFragment(new Profile(weight,gender));
+        getSupportFragmentManager().popBackStack();
 
+    }
+
+    @Override
+    public void cancelSetGender() {
+        getSupportFragmentManager().popBackStack();
     }
 
     @Override
@@ -42,6 +46,12 @@ public class MainActivity extends AppCompatActivity implements SetGender.GListen
 
         Log.d("TAG", "sendDrink: "+drink);
         mainFragment.settingValuesFromAddDrinkFragment(drink);
+        getSupportFragmentManager().popBackStack();
+    }
+
+    @Override
+    public void cancelAddDrink() {
+        getSupportFragmentManager().popBackStack();
     }
 
 
@@ -50,5 +60,6 @@ public class MainActivity extends AppCompatActivity implements SetGender.GListen
         Main mainFragment = (Main) getSupportFragmentManager().findFragmentByTag("MainFragment");
 
         mainFragment.settingNewDrinkList(drinks);
+        getSupportFragmentManager().popBackStack();
     }
 }

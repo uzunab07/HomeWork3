@@ -126,8 +126,6 @@ public class ViewDrink extends Fragment {
 
                     vdListener.sendDrinkList(drinks);
 
-                    getActivity().getSupportFragmentManager().popBackStack();
-
                 } else {
 
                     drinks.remove(iter);
@@ -150,8 +148,6 @@ public class ViewDrink extends Fragment {
             @Override
             public void onClick(View view) {
                 vdListener.sendDrinkList(drinks);
-
-                getActivity().getSupportFragmentManager().popBackStack();
             }
         });
 

@@ -58,8 +58,7 @@ public class AddDrink extends Fragment {
         view.findViewById(R.id.cancelDrink).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().getSupportFragmentManager().popBackStack();
-
+                adListener.cancelAddDrink();
             }
         });
 
@@ -74,11 +73,6 @@ public class AddDrink extends Fragment {
                 Drink drink = new Drink(drinkSize, alcoholPercentage, Date1);
 
                 adListener.sendDrink(drink);
-
-                getActivity().getSupportFragmentManager().popBackStack();
-
-
-
             }
         });
 
@@ -130,5 +124,7 @@ public class AddDrink extends Fragment {
 
    public interface ADListener{
         void sendDrink(Drink drink);
+        void cancelAddDrink();
+
    }
 }
